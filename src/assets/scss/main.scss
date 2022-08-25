@@ -1,0 +1,68 @@
+@import "~bootstrap/scss/bootstrap";
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.site_main{
+    width: 100%;
+    min-height: 100vh;
+    padding: 64px 0 44px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.site_content{
+    width: 100%;
+    margin: auto;
+}
+.site_header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+.site_footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #EEEEEE;
+
+    p{
+        margin: 0;
+        padding: 0;
+    }
+}
+.page-404{
+    h1{
+        font-size: 10em;
+    }
+}
+.form_box{
+    width: 100%;
+    max-width: 380px;
+    margin: auto;
+}
+input[type="password"] {
+    -webkit-text-security: square;
+}
