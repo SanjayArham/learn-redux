@@ -12,8 +12,7 @@ import { Box, Typography, TextField, Button } from '@mui/material';
 import CrudLayout from '../../layouts/CrudLayout'
 
 function Register() {
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');

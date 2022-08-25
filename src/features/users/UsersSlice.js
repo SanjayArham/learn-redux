@@ -11,11 +11,11 @@ const initialState = {
             isLoggedin: false
         }
     ],
-    anyUserLoggedin: false
+    currentUser: null
 }
 
 export const usersSlice = createSlice({
-  name: 'counter',
+  name: 'users',
   initialState,
   reducers: {
     dispatchLogin: (state, action) => {
@@ -26,12 +26,12 @@ export const usersSlice = createSlice({
 
         for(let usersKey in users){
 
-            if(users[usersKey].email == getLoginEmail){
+            if(users[usersKey].email === getLoginEmail){
                 var forUserID = users[usersKey].id;
-                var forUserEmail = users[usersKey].email;
+                // var forUserEmail = users[usersKey].email;
                 var forUserPassword = users[usersKey].password;
 
-                if(forUserPassword == getLoginPassword){
+                if(forUserPassword === getLoginPassword){
                     var checkEmailAndPass = true;
                 }
             }
@@ -44,7 +44,7 @@ export const usersSlice = createSlice({
             
             var userIndex = state.users.map(function(x) {return x.id; }).indexOf(forUserID);
             state.users[userIndex].isLoggedin = true;
-            state.anyUserLoggedin = true;
+            state.currentUser = state.users[userIndex];
         }else{
             alert("Email is NOT valid!");
         }
@@ -58,14 +58,14 @@ export const usersSlice = createSlice({
         var getConfirmPassword = getRegisterData.registerConfirmPassword;
         
         var checkPassword, emailExist;
-        if(getPassword == getConfirmPassword){
+        if(getPassword === getConfirmPassword){
             checkPassword = true;
         }else{
             checkPassword = false;
         }
 
         for(let usersKey in state.users){
-            if(state.users[usersKey].email == getEmail){
+            if(state.users[usersKey].email === getEmail){
                 emailExist = true;
             }
         }
@@ -84,7 +84,6 @@ export const usersSlice = createSlice({
                 }
     
                 state.users.push(registerNewData);
-    
                 alert("Congrats You Are Register!");
             }else{
                 alert("Email is Already Exist, Please Change the Email!");
@@ -100,4 +99,4 @@ export const usersSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { dispatchLogin, dispatchRegister } = usersSlice.actions
 
-export default usersSlice.reducer
+export default usersSlice.reducer;

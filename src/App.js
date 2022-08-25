@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux'
 
 // SCSS
@@ -13,6 +13,7 @@ import Register from './pages/crud/Register';
 // PAGES SITE
 import Home from './pages/sites/Home';
 import About from './pages/sites/About';
+import Collection from './pages/sites/Collection';
 // PAGES OTHER
 import NoPage from './pages/others/NoPage';
 
@@ -21,14 +22,15 @@ import NoPage from './pages/others/NoPage';
 function App() {
 
   
-  const anyUserLoggedin = useSelector((state) => state.users.anyUserLoggedin);
+  const currentUser = useSelector((state) => state.users.currentUser);
 
   return (
     <BrowserRouter>
-        {anyUserLoggedin ? 
+        {currentUser ? 
           <Routes>
             <Route exact path='/' element={<Home/>} /> 
             <Route path='/about' element={<About/>} />
+            <Route path='/collection' element={<Collection/>} />
             <Route path='*' element={<NoPage/>} />
           </Routes>
           : 
