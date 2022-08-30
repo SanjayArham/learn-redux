@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import './assets/scss/main.scss';
 
 // ROUTER DOM
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 
 // PAGES CRUD
 import Login from './pages/crud/Login';
@@ -14,6 +14,7 @@ import Register from './pages/crud/Register';
 import Home from './pages/sites/Home';
 import About from './pages/sites/About';
 import Collection from './pages/sites/Collection';
+import Product from './pages/sites/Product';
 // PAGES OTHER
 import NoPage from './pages/others/NoPage';
 
@@ -31,6 +32,7 @@ function App() {
             <Route exact path='/' element={<Home/>} /> 
             <Route path='/about' element={<About/>} />
             <Route path='/collection' element={<Collection/>} />
+            <Route path='/product/:productParamUrl' element={<Product/>} />
             <Route path='*' element={<NoPage/>} />
           </Routes>
           : 

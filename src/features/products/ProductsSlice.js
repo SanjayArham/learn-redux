@@ -13,7 +13,7 @@ const initialState = {
             costPrice: 10000,
             comparePrice: 13499,
             inCart: false,
-            url: '/product/redmi-note-8'
+            url: '/redmi-note-8'
         },
         {
             id: 2,
@@ -25,7 +25,7 @@ const initialState = {
             costPrice: 12000,
             comparePrice: 16000,
             inCart: false,
-            url: '/product/redmi-note-9'
+            url: '/redmi-note-9'
         },
         {
             id: 3,
@@ -37,7 +37,7 @@ const initialState = {
             costPrice: 14000,
             comparePrice: 20000,
             inCart: false,
-            url: '/product/realme-6-pro'
+            url: '/realme-6-pro'
         },
         {
             id: 4,
@@ -49,7 +49,7 @@ const initialState = {
             costPrice: 28000,
             comparePrice: 40000,
             inCart: false,
-            url: '/product/samsung-note-10'
+            url: '/samsung-note-10'
         },
         {
             id: 5,
@@ -61,7 +61,7 @@ const initialState = {
             costPrice: 125000,
             comparePrice: null,
             inCart: false,
-            url: '/product/iphone-13-pro-max'
+            url: '/iphone-13-pro-max'
         }
     ]
 }
@@ -86,7 +86,7 @@ export const productsSlice = createSlice({
             costPrice: createProductData.costPrice,
             comparePrice: createProductData.comparePrice,
             inCart: createProductData.inCart,
-            url: '/product/' + createProductData.url
+            url: '/' + createProductData.url
         }
 
         state.products.push(newProduct);

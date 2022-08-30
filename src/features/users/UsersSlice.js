@@ -8,6 +8,7 @@ const initialState = {
             lastname: "Barad",
             email: "sanjay.barad@arhamtechnosoft.com",
             password: "Sanjay@123",
+            type: 'customer',
             isLoggedin: false
         }
     ],
@@ -80,6 +81,7 @@ export const usersSlice = createSlice({
                     lastname: getLastName,
                     email: getEmail,
                     password: getPassword,
+                    type: 'customer',
                     isLoggedin: false
                 }
     
