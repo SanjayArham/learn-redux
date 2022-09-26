@@ -22,6 +22,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 
 function CartItems(props) {
@@ -42,7 +43,7 @@ function CartItems(props) {
         dispatch(dispatchRemoveCart(currId));
     }
 
-    let checkCartEmpty = (cart.length == 0);
+    let checkCartEmpty = (cartItems.length == 0);
     
     const handleNavigate = (page) => {
         navigate("/" + page);
@@ -71,7 +72,7 @@ function CartItems(props) {
                     <TableBody>
                         {checkCartEmpty ? 
                         <TableRow>
-                            <TableCell component={"th"} align="center" colSpan={7}>No Data in Cart</TableCell>
+                            <TableCell component={"th"} align="center" colSpan={7} color="error"><Typography variant="body2" color={"error"}>No Data in Cart</Typography></TableCell>
                         </TableRow>
                         : 
                         <>

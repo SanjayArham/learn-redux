@@ -42,7 +42,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function Checkout() {
   let cart = useSelector((state) => state.cart);
   let cartItems = useSelector((state) => state.cart.cartItem);
-  let checkCartEmpty = (cart.length == 0);
+  let checkCartEmpty = (cartItems.length === 0);
     
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
