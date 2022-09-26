@@ -15,6 +15,8 @@ import Home from './pages/sites/Home';
 import About from './pages/sites/About';
 import Collection from './pages/sites/Collection';
 import Product from './pages/sites/Product';
+import Cart from './pages/sites/Cart';
+import Checkout from './pages/sites/Checkout';
 // PAGES OTHER
 import NoPage from './pages/others/NoPage';
 
@@ -33,6 +35,8 @@ function App() {
             <Route path='/about' element={<About/>} />
             <Route path='/collection' element={<Collection/>} />
             <Route path='/product/:productParamUrl' element={<Product/>} />
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/Checkout' element={<Checkout/>} />
             <Route path='*' element={<NoPage/>} />
           </Routes>
           : 

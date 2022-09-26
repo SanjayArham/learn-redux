@@ -32,7 +32,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import { deepOrange, deepPurple } from '@mui/material/colors';
 
 const pages = ['collection', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Order', 'Wishlist', 'Settings', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const cart = useSelector((state) => state.cart);
@@ -162,6 +162,7 @@ const ResponsiveAppBar = () => {
                 size="large"
                 aria-label="show 17 new notifications"
                 color="inherit"
+                onClick={() => handleNavigate("cart")}
               >
                 <Badge badgeContent={cartLength} color="error">
                   <ShoppingCartIcon />
@@ -177,6 +178,7 @@ const ResponsiveAppBar = () => {
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
+              className='header_user_dropdown'
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -192,7 +194,7 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={() => handleNavigate(setting)}>
+                <MenuItem className='header_user_dropdown_item' key={setting} onClick={() => handleNavigate(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

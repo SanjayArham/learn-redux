@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { dispatchAddToCart, dispatchRemoveFromCart } from '../../features/products/ProductsSlice';
-import { dispatchUpdateCart } from '../../features/cart/CartSlice';
+import { dispatchAddCart } from '../../features/cart/CartSlice';
 
 
 // MUI
@@ -17,12 +17,12 @@ function ProductDetail(props) {
     const handleRemoveFromCart = () => {
         dispatch(dispatchRemoveFromCart(productId));
     }
-    const handleAddToCart = () => {
+    const handleAddToCart = (passId) => {
         dispatch(dispatchAddToCart(productId));
+        dispatch(dispatchAddCart(productId));
     }
 
     useEffect(() => {
-        dispatch(dispatchUpdateCart(products));
         setProduct(props.product);
     });
 

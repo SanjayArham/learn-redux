@@ -49,10 +49,10 @@ function Register() {
               <TextField fullWidth sx={{ mb: 2 }} size="small" required id="email" name="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div>
-              <TextField fullWidth sx={{ mb: 2 }} size="small" required id="password" name="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <TextField fullWidth sx={{ mb: 2 }} size="small" required type={'password'} id="password" name="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div>
-              <TextField fullWidth sx={{ mb: 2 }} size="small" required id="confirmPassword" name="confirmPassword" label="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+              <TextField fullWidth sx={{ mb: 2 }} size="small" required type={'password'} id="confirmPassword" name="confirmPassword" label="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
             </div>
             <div>
               <Button fullWidth sx={{ mt: 2, mb: 2 }} variant='contained' size='medium' onClick={handleRegister}>Register</Button>

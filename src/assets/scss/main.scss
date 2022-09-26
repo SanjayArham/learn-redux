@@ -25,6 +25,14 @@ a{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
+    &.header-false{
+        padding-top: 0;
+    }
+
+    &.footer-false{
+        padding-bottom: 0;
+    }
 }
 .site_content{
     width: 100%;
@@ -73,4 +81,30 @@ input[type="password"] {
 }
 .page-collection{
     padding: 50px 0;
+}
+.quantity_elem{
+    .MuiOutlinedInput-input, .MuiButtonBase-root{
+        width: 40px;
+        min-width: 40px;
+        max-width: 40px;
+        height: 40px;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 0;
+        border-radius: 0;
+    }
+    .MuiOutlinedInput-input + .MuiOutlinedInput-notchedOutline{
+        border-radius: 0;
+        top: 0;
+        
+        legend{
+            display: none;
+        }
+    }
+}
+.cart_table th.MuiTableCell-sizeMedium {
+    font-weight: bold;
+}
+.header_user_dropdown{
+    min-width: 150px;
 }
