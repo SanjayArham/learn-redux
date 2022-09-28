@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useSelector } from 'react-redux';
-import ProductCard from '../../components/product/ProductCard';
+import ProductCardSkeleton from '../../skeleton/ProductCardSkeleton';
 
 // LAYOUT
-import SiteLayout from '../../layouts/SiteLayout'
+import SiteLayout from '../../layouts/SiteLayout';
+const ProductCard = React.lazy(() => import('../../components/product/ProductCard'));
 
 function Collection() {
 
     const products = useSelector((state) => state.products.products);
 
-
     const displayProducts = products.map((product) =>
         <div className='col-md-3' key={product.id}>
-            <ProductCard className="mb-5" product={product}></ProductCard>
+            <Suspense fallback={<ProductCardSkeleton className="mb-5" />}>
+                <ProductCard className="mb-5" product={product}></ProductCard>
+            </Suspense>
         </div>
     )
 

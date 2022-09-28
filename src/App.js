@@ -23,7 +23,6 @@ import NoPage from './pages/others/NoPage';
 
 
 function App() {
-
   
   const currentUser = useSelector((state) => state.users.currentUser);
 

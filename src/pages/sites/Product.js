@@ -20,7 +20,6 @@ function Product() {
         if((products[productsKey].url) === ('/' + productParamUrl)){
             var currentProduct = products[productsKey];
         }
-        console.log(products[productsKey].url);
     }
 
     return (

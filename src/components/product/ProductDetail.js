@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { dispatchAddToCart, dispatchRemoveFromCart } from '../../features/products/ProductsSlice';
-import { dispatchAddCart } from '../../features/cart/CartSlice';
+import { dispatchAddCart, dispatchRemoveCart } from '../../features/cart/CartSlice';
 
 
 // MUI
@@ -12,19 +12,19 @@ function ProductDetail(props) {
     let products = useSelector((state) => state.products.products);
     
     const [ product, setProduct ] = useState(props.product);
+    useEffect(() => {
+        setProduct(props.product)
+    });
     const productId = product.id;
 
     const handleRemoveFromCart = () => {
         dispatch(dispatchRemoveFromCart(productId));
+        dispatch(dispatchRemoveCart(productId));
     }
-    const handleAddToCart = (passId) => {
+    const handleAddToCart = () => {
         dispatch(dispatchAddToCart(productId));
-        dispatch(dispatchAddCart(productId));
+        dispatch(dispatchAddCart(product));
     }
-
-    useEffect(() => {
-        setProduct(props.product);
-    });
 
     return (
         <Card sx={{p:5}}>

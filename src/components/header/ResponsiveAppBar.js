@@ -4,7 +4,8 @@ import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // REDUX
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { dispatchLogout } from '../../features/users/UsersSlice';
 
 
 // MUI
@@ -35,10 +36,12 @@ const pages = ['collection', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Order', 'Wishlist', 'Settings', 'Logout'];
 
 const ResponsiveAppBar = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const cartItem = useSelector((state) => state.cart.cartItem);
   const cartLength = useSelector((state) => state.cart.length);
-
+  const users = useSelector((state) => state.users);
+  const userFullName = (users.currentUser.firstname + ' ' + users.currentUser.lastname);
   const navigate = useNavigate();
   
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -61,6 +64,11 @@ const ResponsiveAppBar = () => {
 
   const handleNavigate = (page) => {
     navigate("/" + page);
+
+    if(page === 'Logout'){
+      navigate("/");
+      dispatch(dispatchLogout());
+    }
   }
   
 
@@ -173,7 +181,7 @@ const ResponsiveAppBar = () => {
             <Tooltip title="Open settings">
               
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar sx={{ bgcolor: deepOrange[500], width: 30, height: 30}} alt="Sanjay Barad" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ bgcolor: deepOrange[500], width: 30, height: 30}} alt={userFullName} title={userFullName} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

@@ -10,6 +10,15 @@ const initialState = {
             password: "Sanjay@123",
             type: 'customer',
             isLoggedin: false
+        },
+        {
+            id: 2,
+            firstname: "Arham",
+            lastname: "Technosoft",
+            email: "info@arhamtechnosoft.com",
+            password: "123",
+            type: 'customer',
+            isLoggedin: false
         }
     ],
     currentUser: null
@@ -49,6 +58,13 @@ export const usersSlice = createSlice({
         }else{
             alert("Email is NOT valid!");
         }
+    },
+    dispatchLogout: (state) => {
+        let currentUserId = state.currentUser.id;
+        let users = state.users;
+        var userIndex = state.users.map(function(x) {return x.id; }).indexOf(currentUserId);
+        state.users[userIndex].isLoggedin = false;
+        state.currentUser = null;
     },
     dispatchRegister: (state, action) => {
         var getRegisterData = action.payload;
@@ -99,6 +115,6 @@ export const usersSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { dispatchLogin, dispatchRegister } = usersSlice.actions
+export const { dispatchLogin, dispatchLogout, dispatchRegister } = usersSlice.actions
 
 export default usersSlice.reducer;
