@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // ROUTER DOM
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // REDUX
 import { useSelector, useDispatch } from 'react-redux';
@@ -27,21 +27,18 @@ import Badge from '@mui/material/Badge';
 import AdbIcon from '@mui/icons-material/Adb';
 import MailIcon from '@mui/icons-material/Mail';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 
 // MUI => COLOR
-import { deepOrange, deepPurple } from '@mui/material/colors';
+import { deepOrange } from '@mui/material/colors';
 
-const pages = ['collection', 'Pricing', 'Blog'];
+const pages = ['collection', 'Todos', 'Blog'];
 const settings = ['Profile', 'Order', 'Wishlist', 'Settings', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-  const cartItem = useSelector((state) => state.cart.cartItem);
   const cartLength = useSelector((state) => state.cart.length);
   const users = useSelector((state) => state.users);
-  const userFullName = (users.currentUser.firstname + ' ' + users.currentUser.lastname);
+  // const userFullName = users.currentUser.firstname + ' ' + users.currentUser.lastname;
   const navigate = useNavigate();
   
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -181,7 +178,7 @@ const ResponsiveAppBar = () => {
             <Tooltip title="Open settings">
               
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar sx={{ bgcolor: deepOrange[500], width: 30, height: 30}} alt={userFullName} title={userFullName} src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ bgcolor: deepOrange[500], width: 30, height: 30}} alt={'Sanjay Barad'} title={'Sanjay Barad'} src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
